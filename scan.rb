@@ -2,7 +2,7 @@
 require 'json'
 require 'net/http'
 
-ENDPOINT = "http://localhost/api/checkout"
+ENDPOINT = "http://localhost/checkout"
 LOCATION = "SendGrid"
 
 def post_entry (entry = {})
@@ -16,9 +16,9 @@ end
 loop do
 	entry = {}
 	puts "READY"
-	entry['UPC'] = $stdin.gets
-	entry['TS'] = Time.now.to_i
-	entry['LOC'] = LOCATION
+	entry['upc'] = $stdin.gets
+	entry['ts'] = Time.now.to_i
+	entry['loc'] = LOCATION
 
 	post_entry entry
 	puts "TRANSMITTED"
