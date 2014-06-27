@@ -2,8 +2,8 @@
 require 'json'
 require 'net/http'
 
-ENDPOINT = "http://localhost/checkout"
-LOCATION = "SendGrid"
+ENDPOINT = "http://107.170.201.151:4040/checkout"
+LOCATION = 2
 
 def post_entry (entry = {})
 	uri = URI.parse(URI::escape(ENDPOINT))
@@ -16,10 +16,10 @@ end
 loop do
 	entry = {}
 	puts "READY"
-	entry['upc'] = $stdin.gets
-	entry['ts'] = Time.now.to_i
-	entry['loc'] = LOCATION
+	entry['upc'] = $stdin.gets.chomp
+	entry['timestamp'] = Time.now.to_i
+	entry['location'] = LOCATION
 
-	post_entry entry
+	post_entry entry.to_json
 	puts "TRANSMITTED"
 end
