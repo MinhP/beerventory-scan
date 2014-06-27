@@ -2,7 +2,7 @@
 require 'json'
 require 'net/http'
 
-ENDPOINT = "http://107.170.201.151:4040/checkout"
+ENDPOINT = "http://107.170.201.151:9000/checkout"
 LOCATION = 2
 
 def post_entry (entry = {})
